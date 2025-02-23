@@ -5,3 +5,10 @@
     <app-language-switcher></app-language-switcher>
   </div>
 </p-header>
+<p-menu [model]="items" class="p-menu-horizontal">
+  <ng-template let-item pTemplate="item">
+    <a (click)="item.command()">
+      <i [class]="item.icon"></i> {{ item.label }}
+    </a>
+  </ng-template>
+</p-menu>

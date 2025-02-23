@@ -2,5 +2,10 @@
   "app": {
     "title": "Benutzeranwendung",
     "description": "Benutzer verwalten"
+  },
+  "menu": {
+    "dashboard": "Bedienfeld",
+    "userList": "Benutzerlist",
+    "login": "Anmelden"
   }
 }

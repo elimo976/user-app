@@ -2,5 +2,10 @@
   "app": {
     "title": "Applicazione Utenti",
     "description": "Gestisci i tuoi Utenti"
+  },
+  "menu": {
+    "dashboard": "Pannello di controllo",
+    "userList": "Lista utenti",
+    "login": "Accedi"
   }
 }

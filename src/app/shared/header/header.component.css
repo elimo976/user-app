@@ -6,3 +6,19 @@
   background-color: var(--primary-color);
   color: var(--text-color);
 }
+.p-menu-horizontal {
+  display: flex;
+  justify-content: end;
+}
+
+.p-menu-horizontal a {
+  display: block; /* per applicare il padding Y che altrimenti non viene applicato */
+  padding: .3rem;
+  color: var(--text-color);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.p-menu-horizontal a:hover, .p-menu-horizontal a:active {
+  color: var(--primary-color);
+}

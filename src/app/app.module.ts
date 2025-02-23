@@ -5,10 +5,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ButtonModule } from 'primeng/button';
+
 import { HttpClientModule } from '@angular/common/http';
 import { TranslocoRootModule } from './translations/transloco-root.module';
 import { TranslationsModule } from './translations/translations.module';
 import { SharedModule } from './shared/shared.module';
+import { TranslocoService } from '@ngneat/transloco';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,11 @@ import { SharedModule } from './shared/shared.module';
     TranslationsModule,
     SharedModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: TranslocoService,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,5 +2,10 @@
   "app": {
     "title": "User Application",
     "description": "Manage your users"
+  },
+  "menu": {
+    "dashboard": "Dashboard",
+    "userList": "User List",
+    "login": "Login"
   }
 }
