@@ -1,0 +1,7 @@
+<div class="language-switcher">
+  <p-dropdown
+  [options]="languages"
+  [(ngModel)]="selectedLang"
+  (onChange)="changeLang($event.value)"
+  placeholder="Seleziona Lingua"></p-dropdown>
+</div>
