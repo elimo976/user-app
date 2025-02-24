@@ -7,5 +7,9 @@
     "dashboard": "Pannello di controllo",
     "userList": "Lista utenti",
     "login": "Accedi"
+  },
+  "login": {
+    "signIn": "Inserisci le tue credenziali",
+    "enter": "Accedi"
   }
 }

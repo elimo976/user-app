@@ -4,11 +4,14 @@ import { LanguageSwitcherComponent } from './language-switcher/language-switcher
 
 import { DropdownModule } from 'primeng/dropdown';
 import { MenuModule } from 'primeng/menu';
+import { PasswordModule } from 'primeng/password'
 
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { TranslocoModule, TranslocoService } from '@ngneat/transloco';
 import { TranslationsModule } from '../translations/translations.module';
+import { ButtonModule } from 'primeng/button';
 
 
 
@@ -20,16 +23,24 @@ import { TranslationsModule } from '../translations/translations.module';
   imports: [
     CommonModule,
     DropdownModule,
+    ButtonModule,
+    PasswordModule,
     FormsModule,
     TranslocoModule,
     TranslationsModule,
-    MenuModule
+    MenuModule,
+    ReactiveFormsModule
   ],
   exports: [
     LanguageSwitcherComponent,
+    TranslationsModule,
+    TranslocoModule,
     DropdownModule,
+    PasswordModule,
+    ButtonModule,
     FormsModule,
-    HeaderComponent
+    HeaderComponent,
+    ReactiveFormsModule
   ],
   providers: [
     TranslocoService

@@ -7,5 +7,9 @@
     "dashboard": "Dashboard",
     "userList": "User List",
     "login": "Login"
+  },
+  "login": {
+    "signIn": "Sign In",
+    "enter": "Enter"
   }
 }

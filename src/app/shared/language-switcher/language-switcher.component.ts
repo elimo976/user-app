@@ -7,6 +7,7 @@ import { TranslocoService } from '@ngneat/transloco';
   styleUrl: './language-switcher.component.css'
 })
 export class LanguageSwitcherComponent {
+
   languages = [
     { label: 'Italiano', value: 'it' },
     { label: 'English', value: 'en' },

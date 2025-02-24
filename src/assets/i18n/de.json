@@ -7,5 +7,9 @@
     "dashboard": "Bedienfeld",
     "userList": "Benutzerlist",
     "login": "Anmelden"
+  },
+  "login": {
+    "signIn": "Anmeldeinformationen eingeben",
+    "enter": "Senden"
   }
 }
