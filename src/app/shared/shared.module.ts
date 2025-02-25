@@ -41,9 +41,6 @@ import { ButtonModule } from 'primeng/button';
     FormsModule,
     HeaderComponent,
     ReactiveFormsModule
-  ],
-  providers: [
-    TranslocoService
   ]
 })
 export class SharedModule { }

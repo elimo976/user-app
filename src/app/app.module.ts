@@ -11,6 +11,8 @@ import { TranslocoRootModule } from './translations/transloco-root.module';
 import { TranslationsModule } from './translations/translations.module';
 import { SharedModule } from './shared/shared.module';
 import { TranslocoService } from '@ngneat/transloco';
+import { AuthModule } from './auth/auth.module';
+
 
 @NgModule({
   declarations: [
@@ -25,11 +27,7 @@ import { TranslocoService } from '@ngneat/transloco';
     TranslocoRootModule,
     TranslationsModule,
     SharedModule,
-  ],
-  providers: [
-    {
-      provide: TranslocoService,
-    }
+    AuthModule
   ],
   bootstrap: [AppComponent]
 })
