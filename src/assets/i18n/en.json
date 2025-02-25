@@ -1,4 +1,10 @@
 {
+  "messages": {
+    "error": {
+      "invalid_credentials": "Invalid credentials",
+      "authentication_required": "Authentication required"
+     }
+    },
   "app": {
     "title": "User Application",
     "description": "Manage your users"

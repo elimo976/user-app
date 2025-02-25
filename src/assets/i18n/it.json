@@ -1,4 +1,10 @@
 {
+  "messages": {
+    "error": {
+      "invalid_credentials": "Credenziali errate",
+      "authentication_required": "Autenticazione necessaria"
+    }
+  },
   "app": {
     "title": "Applicazione Utenti",
     "description": "Gestisci i tuoi Utenti"

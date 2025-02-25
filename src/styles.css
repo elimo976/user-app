@@ -5,3 +5,10 @@ body {
   padding: 0;
   background-color: #eef1f4;
 }
+.error {
+  background-color: #ec0404;
+  color: #ffffff;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 3px;
+}

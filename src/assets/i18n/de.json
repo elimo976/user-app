@@ -1,4 +1,10 @@
 {
+  "messages": {
+    "error": {
+      "invalid_credentials": "Ungültige Anmeldedaten",
+      "authentication_required": "Authentifizierung erforderlich"
+    }
+  },
   "app": {
     "title": "Benutzeranwendung",
     "description": "Benutzer verwalten"

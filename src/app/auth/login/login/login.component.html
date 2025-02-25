@@ -2,7 +2,6 @@
   <div class="p-card shadow-3 p-4">
     <div class="p-fluid">
       <h2 class="text-center mb-4">{{ 'login.signIn' | transloco }}</h2>
-
       <fieldset>
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <div class="p-field mb-3">
@@ -14,10 +13,13 @@
               <label for="password">Password</label>
               <p-password id="password" formControlName="password" [toggleMask]="true" class="d-block mt-1"></p-password>
             </div>
-
             <button pButton type="submit" label="Accedi" [disabled]="loginForm.invalid"></button>
         </form>
       </fieldset>
+
+      <p
+      *ngIf="message"
+      [ngClass]="{'error': message}">{{message}}</p>
     </div>
   </div>
 </div>
