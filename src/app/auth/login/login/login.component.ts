@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../auth.service';
 import { TranslocoService } from '@ngneat/transloco';
 import { Router } from '@angular/router';
-import { MessageService } from '../../../services/message.service';
+import { MessageService } from '../../../shared/services/message.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -29,6 +29,7 @@ export class LoginComponent {
 
  ngOnInit() {
     // Ascolta i cambiamenti del messaggio
+    // Traduzione messaggio gestito nella guardia
     this.messageSubscription = this.messageService.message$.subscribe(messageKey => {
       if (messageKey) {
         this.translocoService.selectTranslate(messageKey).subscribe(translatedMessage => {
@@ -50,9 +51,8 @@ export class LoginComponent {
     this.authService.login(email, password).subscribe({
       next: () => this.router.navigate(['/usersList']),
       error: () => {
-        // Messaggio di errore non gestito da MessageService
         this.translocoService.selectTranslate('messages.error.invalid_credentials').subscribe(translatedMessage => {
-          this.message = translatedMessage;
+          this.messageService.setMessage(translatedMessage);
         } )
       }
     });
