@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UserListComponent } from './user-list.component';
+import { UserListComponent } from './users-list.component';
 
 describe('UserListComponent', () => {
   let component: UserListComponent;
@@ -11,7 +11,7 @@ describe('UserListComponent', () => {
       declarations: [UserListComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(UserListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

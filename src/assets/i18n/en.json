@@ -11,11 +11,31 @@
   },
   "menu": {
     "dashboard": "Dashboard",
-    "userList": "User List",
+    "usersList": "Users List",
     "login": "Login"
   },
   "login": {
     "signIn": "Sign In",
     "enter": "Enter"
+  },
+  "userDetailPage": {
+    "title": "User Details",
+    "userRoles": {
+      "admin": "Admin",
+      "user": "User"
+    }
+  },
+  "dateOfBirth": "Date of Birth",
+  "phoneNumber": "Phone number",
+  "address": {
+    "street": "Address",
+    "city": "City",
+    "zipCode": "Postal Code",
+    "country": "Country"
+  },
+  "close": "Close",
+  "usersListPage": {
+    "title": "Users List",
+    "detail": "View user card"
   }
 }

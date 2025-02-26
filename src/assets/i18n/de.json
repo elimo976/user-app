@@ -11,11 +11,31 @@
   },
   "menu": {
     "dashboard": "Bedienfeld",
-    "userList": "Benutzerlist",
+    "usersList": "Benutzerlist",
     "login": "Anmelden"
   },
   "login": {
     "signIn": "Anmeldeinformationen eingeben",
     "enter": "Senden"
+  },
+  "userDetailPage": {
+    "title": "Benutzerdetails",
+    "userRoles": {
+      "admin": "Administrator",
+      "user": "Benutzer"
+    }
+  },
+  "dateOfBirth": "Geburtstag",
+  "phoneNumber": "Telefonnummer",
+  "address": {
+    "street": "Adresse",
+    "city": "Stadt",
+    "zipCode": "Postleitzahlnummer",
+    "country": "Staat"
+  },
+  "close": "Schließen",
+  "usersListPage": {
+    "title": "Benutzerlist",
+    "detail": "Benutzerkarte ansehen"
   }
 }

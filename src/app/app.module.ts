@@ -10,9 +10,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { TranslocoRootModule } from './translations/transloco-root.module';
 import { TranslationsModule } from './translations/translations.module';
 import { SharedModule } from './shared/shared.module';
-import { TranslocoService } from '@ngneat/transloco';
 import { AuthModule } from './auth/auth.module';
+import { AgGridModule } from 'ag-grid-angular';
+import { ModuleRegistry } from '@ag-grid-community/core';
+import { ClientSideRowModelModule } from '@ag-grid-community/client-side-row-model';
 
+ModuleRegistry.registerModules([ClientSideRowModelModule]);
 
 @NgModule({
   declarations: [
@@ -27,7 +30,8 @@ import { AuthModule } from './auth/auth.module';
     TranslocoRootModule,
     TranslationsModule,
     SharedModule,
-    AuthModule
+    AuthModule,
+    AgGridModule
   ],
   bootstrap: [AppComponent]
 })

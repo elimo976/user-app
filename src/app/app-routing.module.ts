@@ -6,7 +6,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
   { path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule), canActivate: [authGuard] },
-  { path: 'userList', loadChildren: () => import('./users/users.module').then(m => m.UsersModule), canActivate: [authGuard] },
+  { path: 'usersList', loadChildren: () => import('./users/users.module').then(m => m.UsersModule), canActivate: [authGuard] },
   { path: '**', redirectTo: 'login' }
 ];
 

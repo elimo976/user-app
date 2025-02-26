@@ -2,20 +2,32 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { UsersRoutingModule } from './users-routing.module';
-import { UserListComponent } from './user-list/user-list.component';
+import { UsersListComponent } from './users-list/users-list.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { UserFormComponent } from './user-form/user-form.component';
+
+import {DialogModule} from 'primeng/dialog';
+import { Button } from 'primeng/button';
+
+import {AgGridModule} from 'ag-grid-angular';
+import { TranslocoModule } from '@ngneat/transloco';
+import { TranslationsModule } from '../translations/translations.module';
 
 
 @NgModule({
   declarations: [
-    UserListComponent,
+    UsersListComponent,
     UserDetailComponent,
     UserFormComponent
   ],
   imports: [
     CommonModule,
-    UsersRoutingModule
+    UsersRoutingModule,
+    DialogModule,
+    Button,
+    TranslocoModule,
+    TranslationsModule,
+    AgGridModule
   ]
 })
 export class UsersModule { }

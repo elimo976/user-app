@@ -1,0 +1,21 @@
+<app-user-detail [user]="selectedUser" [display]="displayUserDetail" (close)="closeUserDetail()"></app-user-detail>
+<h2>{{ 'usersListPage.title' | transloco }}</h2>
+<!-- Lista di utenti -->
+<div class="agGrid">
+  <ag-grid-angular
+    class="ag-theme-alpine"
+    [rowData]="users"
+    [columnDefs]="columnDefs"
+    [rowModelType]="'clientSide'"
+    [pagination]="true"
+    [domLayout]="'autoHeight'"
+    [animateRows]="true"
+    (gridReady)="onGridReady($event)"
+    >
+
+    <!-- Pulsante per aprire i dettagli dell'utente -->
+    <p-button (click)="openUserDetail(user)" *ngFor="let user of users">
+      {{ 'usersListPage.detail' | transloco }}
+    </p-button>
+  </ag-grid-angular>
+</div>

@@ -11,11 +11,32 @@
   },
   "menu": {
     "dashboard": "Pannello di controllo",
-    "userList": "Lista utenti",
+    "usersList": "Lista utenti",
     "login": "Accedi"
   },
   "login": {
     "signIn": "Inserisci le tue credenziali",
     "enter": "Accedi"
+  },
+  "userDetailPage": {
+    "title": "Dettagli Utente",
+    "role": "Ruolo",
+    "userRoles": {
+      "admin": "Amministratore",
+      "user": "Utente"
+    },
+    "dateOfBirth": "Data di Nascita",
+    "phoneNumber": "Numero di telefono",
+    "address": {
+      "street": "Indirizzo",
+      "city": "Città",
+      "zipCode": "CAP",
+      "country": "Stato"
+    }
+  },
+  "close": "chiudi",
+  "usersListPage": {
+    "title": "Lista utenti",
+    "detail": "Visualizza scheda utente"
   }
 }

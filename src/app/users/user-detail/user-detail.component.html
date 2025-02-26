@@ -1,1 +1,23 @@
-<p>user-detail works!</p>
+<p-dialog header="{{ 'userDetailPage.title' | transloco}}" [(visible)]="display" [modal]="true" [closable]="true" (onHide)="closeModal()">
+  <ng-container *ngIf="user">
+    <div class="mb-3">
+      <h2>{{ user.firstName }} {{ user.lastName }}</h2>
+      <p><strong>Email:</strong> {{user.email}}</p>
+      <p><strong>{{ 'userDetailPage.role' | transloco }}:</strong> {{ 'userDetailPage.userRoles.' + user.role | transloco }}</p>
+      <p *ngIf="user.dateOfBirth"><strong>{{ 'userDetailPage.dateOfBirth' | transloco }}:</strong> {{ user.dateOfBirth }}</p>
+      <p *ngIf="user.phoneNumber"><strong>{{ 'userDetailPage.phoneNumber' | transloco }}:</strong> {{user.phoneNumber }}</p>
+      <div *ngIf="user.address">
+        <p *ngIf="user.address.street"><strong>{{ 'userDetailPage.address.street' | transloco }}</strong>: {{ user.address.street }}</p>
+        <p *ngIf="user.address.city"><strong>{{ 'userDetailPage.address.city' | transloco }}</strong>: {{ user.address.city }}</p>
+        <p *ngIf="user.address.zipCode"><strong>{{ 'userDetailPage.address.zipCode' | transloco }}</strong>: {{ user.address.zipCode }}</p>
+        <p *ngIf="user.address.country"><strong>{{ 'userDetailPage.address.country' | transloco }}</strong>: {{ user.address.country }}</p>
+      </div>
+    </div>
+
+    <div class="d-flex jc-end">
+      <button pButton class="p-button-secondary" icon="pi pi-times" (click)="closeModal()">
+        {{ 'close' | transloco }}
+      </button>
+    </div>
+  </ng-container>
+</p-dialog>

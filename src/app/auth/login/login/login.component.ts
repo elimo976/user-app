@@ -48,7 +48,7 @@ export class LoginComponent {
   const { email, password } = this.loginForm.value;
   if (email && password) {
     this.authService.login(email, password).subscribe({
-      next: () => this.router.navigate(['/userList']),
+      next: () => this.router.navigate(['/usersList']),
       error: () => {
         // Messaggio di errore non gestito da MessageService
         this.translocoService.selectTranslate('messages.error.invalid_credentials').subscribe(translatedMessage => {

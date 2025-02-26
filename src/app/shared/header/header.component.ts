@@ -11,7 +11,7 @@ export class HeaderComponent implements OnInit {
   items: any[] = [];
   loginLabel: string = '';
   dashboardLabel: string = '';
-  userListLabel: string = '';
+  usersListLabel: string = '';
 
   constructor(
     private translocoService: TranslocoService,
@@ -31,15 +31,15 @@ export class HeaderComponent implements OnInit {
       this.updateMenuItems();
     });
 
-    // Sottoscrizione per label 'menu.userList'
-    this.translocoService.selectTranslate('menu.userList').subscribe(userListLabel => {
-      this.userListLabel = userListLabel;
+    // Sottoscrizione per label 'menu.usersList'
+    this.translocoService.selectTranslate('menu.usersList').subscribe(usersListLabel => {
+      this.usersListLabel = usersListLabel;
       this.updateMenuItems();
     });
   }
 
   updateMenuItems(): void {
-    if (this.dashboardLabel && this.userListLabel && this.loginLabel) {
+    if (this.dashboardLabel && this.usersListLabel && this.loginLabel) {
       this.items = [
         {
           label: this.loginLabel,
@@ -52,9 +52,9 @@ export class HeaderComponent implements OnInit {
           command: () => this.navigateToDashboard()
         },
         {
-          label: this.userListLabel,
+          label: this.usersListLabel,
           icon: 'pi pi-fw pi-users',
-          command: () => this.navigateToUserList()
+          command: () => this.navigateToUsersList()
         }
       ];
     }
@@ -68,8 +68,8 @@ export class HeaderComponent implements OnInit {
     this.router.navigateByUrl('/dashboard');
   }
 
-  navigateToUserList(): void {
-    this.router.navigateByUrl('/userList');
+  navigateToUsersList(): void {
+    this.router.navigateByUrl('/usersList');
   }
 }
 
