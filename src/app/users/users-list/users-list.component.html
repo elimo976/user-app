@@ -2,6 +2,11 @@
 <h2>{{ 'usersListPage.title' | transloco }}</h2>
 <!-- Lista di utenti -->
 <div class="agGrid">
+
+  <div class="btnAddUser">
+    <!-- Pulsante per inserire un nuovo utente -->
+    <p-button>{{ 'usersListPage.addUser' | transloco }}</p-button>
+  </div>
   <ag-grid-angular
     class="ag-theme-alpine"
     [rowData]="users"
@@ -10,6 +15,7 @@
     [pagination]="true"
     [domLayout]="'autoHeight'"
     [animateRows]="true"
+    [gridOptions]="gridOptions"
     (gridReady)="onGridReady($event)"
     >
 
@@ -18,4 +24,5 @@
       {{ 'usersListPage.detail' | transloco }}
     </p-button>
   </ag-grid-angular>
+
 </div>

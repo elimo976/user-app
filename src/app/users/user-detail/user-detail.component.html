@@ -4,7 +4,7 @@
       <h2>{{ user.firstName }} {{ user.lastName }}</h2>
       <p><strong>Email:</strong> {{user.email}}</p>
       <p><strong>{{ 'userDetailPage.role' | transloco }}:</strong> {{ 'userDetailPage.userRoles.' + user.role | transloco }}</p>
-      <p *ngIf="user.dateOfBirth"><strong>{{ 'userDetailPage.dateOfBirth' | transloco }}:</strong> {{ user.dateOfBirth }}</p>
+      <p *ngIf="user.dateOfBirth"><strong>{{ 'userDetailPage.dateOfBirth' | transloco }}:</strong> {{ user.dateOfBirth | date:'dd-MMM-yyyy' }}</p>
       <p *ngIf="user.phoneNumber"><strong>{{ 'userDetailPage.phoneNumber' | transloco }}:</strong> {{user.phoneNumber }}</p>
       <div *ngIf="user.address">
         <p *ngIf="user.address.street"><strong>{{ 'userDetailPage.address.street' | transloco }}</strong>: {{ user.address.street }}</p>
@@ -15,7 +15,7 @@
     </div>
 
     <div class="d-flex jc-end">
-      <button pButton class="p-button-secondary" icon="pi pi-times" (click)="closeModal()">
+      <button pButton class="btnClose" icon="pi pi-times" (click)="closeModal()">
         {{ 'close' | transloco }}
       </button>
     </div>

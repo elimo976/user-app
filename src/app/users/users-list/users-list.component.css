@@ -5,3 +5,37 @@ h2 {
 .agGrid {
   margin: 1.2rem;
 }
+
+.btnAddUser {
+  margin-bottom: 1.2rem;
+  margin-right: .3rem;
+  display: flex;
+  justify-content: end;
+}
+
+.view-btn, .edit-btn, .delete-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  margin-right: 10px;
+  cursor: pointer;
+  padding: 5px 7px;
+}
+
+.view-btn:hover {
+  color: #388e3b;
+  background-color: #93939318;
+  border-radius: 50%;
+}
+
+.edit-btn:hover {
+  color: #FFA500;
+  background-color: #93939318;
+  border-radius: 50%;
+}
+
+.delete-btn:hover {
+  color: #db0a0a;
+  background-color: #93939318;
+  border-radius: 50%;
+}

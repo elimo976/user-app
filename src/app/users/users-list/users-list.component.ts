@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { User } from '../user.model';
 import { UsersService } from '../users.service';
-import { MessageService } from 'primeng/api';
 import { ColDef } from 'ag-grid-community';
 import { ModuleRegistry, ValidationModule, PaginationModule, ColumnAutoSizeModule } from 'ag-grid-community';
-import { ClientSideRowModelModule } from 'ag-grid-community';
+import { ClientSideRowModelModule, ICellRendererParams } from 'ag-grid-community';
+import { UserActionRendererComponent } from '../user-action-renderer/user-action-renderer.component';
 
 
 // Registra il modulo prima di usarlo
@@ -14,7 +14,8 @@ ModuleRegistry.registerModules([ValidationModule ,ClientSideRowModelModule, Pagi
 @Component({
   selector: 'app-users-list',
   templateUrl: './users-list.component.html',
-  styleUrl: './users-list.component.css'
+  styleUrl: './users-list.component.css',
+  encapsulation: ViewEncapsulation.None
 })
 export class UsersListComponent {
  users: User[] = [];
@@ -26,8 +27,14 @@ export class UsersListComponent {
   { headerName: 'Last Name', field: 'lastName' },
   { headerName: 'Email', field: 'email' },
   { headerName: 'Role', field: 'role'},
-  { headerName: 'Actions', cellRenderer: 'agCheckboxCellRenderer' }
+  { headerName: 'Actions',
+     cellRenderer: UserActionRendererComponent
+    }
  ]
+
+ gridOptions = {
+  context: { componentParent: this }
+ }
 
 
  constructor(

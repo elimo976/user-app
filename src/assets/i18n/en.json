@@ -20,22 +20,24 @@
   },
   "userDetailPage": {
     "title": "User Details",
+    "role": "Role",
     "userRoles": {
       "admin": "Admin",
       "user": "User"
+    },
+    "dateOfBirth": "Date of Birth",
+    "phoneNumber": "Phone number",
+    "address": {
+      "street": "Address",
+      "city": "City",
+      "zipCode": "Postal Code",
+      "country": "Country"
     }
-  },
-  "dateOfBirth": "Date of Birth",
-  "phoneNumber": "Phone number",
-  "address": {
-    "street": "Address",
-    "city": "City",
-    "zipCode": "Postal Code",
-    "country": "Country"
   },
   "close": "Close",
   "usersListPage": {
     "title": "Users List",
-    "detail": "View user card"
+    "detail": "View user card",
+    "addUser": "Add New User"
   }
 }

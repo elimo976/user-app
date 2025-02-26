@@ -11,7 +11,7 @@
   },
   "menu": {
     "analytics": "Statistiken",
-    "usersList": "Benutzerlist",
+    "usersList": "Benutzerliste",
     "login": "Anmelden"
   },
   "login": {
@@ -20,22 +20,24 @@
   },
   "userDetailPage": {
     "title": "Benutzerdetails",
+    "role": "Rolle",
     "userRoles": {
       "admin": "Administrator",
       "user": "Benutzer"
+    },
+    "dateOfBirth": "Geburtsdatum",
+    "phoneNumber": "Telefonnummer",
+    "address": {
+      "street": "Adresse",
+      "city": "Stadt",
+      "zipCode": "Postleitzahl",
+      "country": "Land"
     }
-  },
-  "dateOfBirth": "Geburtstag",
-  "phoneNumber": "Telefonnummer",
-  "address": {
-    "street": "Adresse",
-    "city": "Stadt",
-    "zipCode": "Postleitzahlnummer",
-    "country": "Staat"
   },
   "close": "Schließen",
   "usersListPage": {
-    "title": "Benutzerlist",
-    "detail": "Benutzerkarte ansehen"
+    "title": "Benutzerliste",
+    "detail": "Benutzerkarte ansehen",
+    "addUser": "Neuen Benutzer hinzufügen"
   }
 }

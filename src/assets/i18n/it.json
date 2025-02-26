@@ -37,6 +37,7 @@
   "close": "chiudi",
   "usersListPage": {
     "title": "Lista utenti",
-    "detail": "Visualizza scheda utente"
+    "detail": "Visualizza scheda utente",
+    "addUser": "Crea nuovo utente"
   }
 }

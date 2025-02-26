@@ -1,0 +1,21 @@
+p-dialog h2 {
+  background-color: #ffd500;
+  padding: .3rem;
+}
+.btnClose {
+  border: none;
+  padding: .5rem 1rem;
+  background-color: #ebebeb;
+  border-radius: 20px;
+  color: #2c2c2c;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: .5rem;
+  transition: background-color.3s ease;
+  box-shadow: 1px 1px 1px #b8b8b8;
+}
+
+.btnClose:hover {
+  background-color: #c5c5c5;
+  box-shadow: 1px 1px 1px #9c9c9c;
+}

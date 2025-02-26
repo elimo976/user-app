@@ -12,13 +12,15 @@ import { Button } from 'primeng/button';
 import {AgGridModule} from 'ag-grid-angular';
 import { TranslocoModule } from '@ngneat/transloco';
 import { TranslationsModule } from '../translations/translations.module';
+import { UserActionRendererComponent } from './user-action-renderer/user-action-renderer.component';
 
 
 @NgModule({
   declarations: [
     UsersListComponent,
     UserDetailComponent,
-    UserFormComponent
+    UserFormComponent,
+    UserActionRendererComponent,
   ],
   imports: [
     CommonModule,
