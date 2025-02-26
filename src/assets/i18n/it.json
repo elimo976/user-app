@@ -10,7 +10,7 @@
     "description": "Gestisci i tuoi Utenti"
   },
   "menu": {
-    "dashboard": "Pannello di controllo",
+    "analytics": "Statistiche",
     "usersList": "Lista utenti",
     "login": "Accedi"
   },

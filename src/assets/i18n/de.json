@@ -10,7 +10,7 @@
     "description": "Benutzer verwalten"
   },
   "menu": {
-    "dashboard": "Bedienfeld",
+    "analytics": "Statistiken",
     "usersList": "Benutzerlist",
     "login": "Anmelden"
   },

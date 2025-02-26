@@ -10,7 +10,7 @@ import { TranslocoService } from '@ngneat/transloco';
 export class HeaderComponent implements OnInit {
   items: any[] = [];
   loginLabel: string = '';
-  dashboardLabel: string = '';
+  analyticsLabel: string = '';
   usersListLabel: string = '';
 
   constructor(
@@ -25,9 +25,9 @@ export class HeaderComponent implements OnInit {
       this.updateMenuItems();
     });
 
-    // Sottoscrizione per label 'menu.dashboard'
-    this.translocoService.selectTranslate('menu.dashboard').subscribe(dashboardLabel => {
-      this.dashboardLabel = dashboardLabel;
+    // Sottoscrizione per label 'menu.analytics'
+    this.translocoService.selectTranslate('menu.analytics').subscribe(analyticsLabel => {
+      this.analyticsLabel = analyticsLabel;
       this.updateMenuItems();
     });
 
@@ -39,7 +39,7 @@ export class HeaderComponent implements OnInit {
   }
 
   updateMenuItems(): void {
-    if (this.dashboardLabel && this.usersListLabel && this.loginLabel) {
+    if (this.analyticsLabel && this.usersListLabel && this.loginLabel) {
       this.items = [
         {
           label: this.loginLabel,
@@ -47,14 +47,14 @@ export class HeaderComponent implements OnInit {
           command: () => this.navigateToLogin()
         },
         {
-          label: this.dashboardLabel,
-          icon: 'pi pi-fw pi-home',
-          command: () => this.navigateToDashboard()
-        },
-        {
           label: this.usersListLabel,
           icon: 'pi pi-fw pi-users',
           command: () => this.navigateToUsersList()
+        },
+        {
+          label: this.analyticsLabel,
+          icon: 'pi pi-fw pi-chart-line',
+          command: () => this.navigateToAnalytics()
         }
       ];
     }
@@ -64,12 +64,12 @@ export class HeaderComponent implements OnInit {
     this.router.navigateByUrl('/login');
   }
 
-  navigateToDashboard(): void {
-    this.router.navigateByUrl('/dashboard');
-  }
-
   navigateToUsersList(): void {
     this.router.navigateByUrl('/usersList');
+  }
+
+  navigateToAnalytics(): void {
+    this.router.navigateByUrl('/analytics');
   }
 }
 

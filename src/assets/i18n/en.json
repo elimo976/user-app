@@ -10,7 +10,7 @@
     "description": "Manage your users"
   },
   "menu": {
-    "dashboard": "Dashboard",
+    "analytics": "Analytics",
     "usersList": "Users List",
     "login": "Login"
   },
