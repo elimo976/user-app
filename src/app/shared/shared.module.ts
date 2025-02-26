@@ -12,6 +12,7 @@ import { HeaderComponent } from './header/header.component';
 import { TranslocoModule, TranslocoService } from '@ngneat/transloco';
 import { TranslationsModule } from '../translations/translations.module';
 import { ButtonModule } from 'primeng/button';
+import { MessageService } from './services/message.service';
 
 
 
@@ -41,6 +42,6 @@ import { ButtonModule } from 'primeng/button';
     FormsModule,
     HeaderComponent,
     ReactiveFormsModule
-  ]
+  ],
 })
 export class SharedModule { }

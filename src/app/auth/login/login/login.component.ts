@@ -27,12 +27,14 @@ export class LoginComponent {
     private router: Router,
   ) {}
 
- ngOnInit() {
+  ngOnInit() {
     // Ascolta i cambiamenti del messaggio
     // Traduzione messaggio gestito nella guardia
     this.messageSubscription = this.messageService.message$.subscribe(messageKey => {
+      //  console.log('[LoginComponent] Ricevuto messaggio:', messageKey); // DEBUG
       if (messageKey) {
         this.translocoService.selectTranslate(messageKey).subscribe(translatedMessage => {
+          // console.log('[LoginComponent] Messaggio tradotto:', translatedMessage); // DEBUG
           this.message = translatedMessage;
         });
       }
@@ -45,17 +47,24 @@ export class LoginComponent {
   }
  }
 
- onSubmit(): void {
+onSubmit(): void {
   const { email, password } = this.loginForm.value;
   if (email && password) {
     this.authService.login(email, password).subscribe({
       next: () => this.router.navigate(['/usersList']),
       error: () => {
-        this.translocoService.selectTranslate('messages.error.invalid_credentials').subscribe(translatedMessage => {
-          this.messageService.setMessage(translatedMessage);
-        } )
+        const errorMessageKey = 'messages.error.invalid_credentials';  // Usa la chiave di traduzione
+        // console.log(`[LoginComponent] Impostando messaggio errore con chiave: ${errorMessageKey}`); // DEBUG
+        this.messageService.setMessage(errorMessageKey); // Imposta la chiave nel service
+
+        // Traduco la chiave con TranslocoService
+        this.translocoService.selectTranslate(errorMessageKey).subscribe(translatedMessage => {
+          // console.log(`[LoginComponent] Messaggio tradotto: ${translatedMessage}`); // DEBUG
+          this.message = translatedMessage; // Imposta il messaggio tradotto nel componente
+        });
       }
     });
   }
- }
+}
+
 }

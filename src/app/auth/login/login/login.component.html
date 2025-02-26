@@ -13,7 +13,7 @@
               <label for="password">Password</label>
               <p-password id="password" formControlName="password" [toggleMask]="true" class="d-block mt-1"></p-password>
             </div>
-            <button pButton type="submit" label="Accedi" [disabled]="loginForm.invalid"></button>
+            <p-button pButton type="submit" label="{{ 'login.enter' | transloco }}" [disabled]="loginForm.invalid"></p-button>
         </form>
       </fieldset>
 

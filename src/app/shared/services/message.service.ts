@@ -11,6 +11,7 @@ export class MessageService {
   constructor() { }
 
   setMessage(message: string): void {
+    // console.log('[MessageService] Impostando messaggio:', message); // DEBUG
     // Imposta il messaggio
     this.messageSubject.next(message);
   }
