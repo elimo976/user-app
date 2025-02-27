@@ -15,5 +15,9 @@ export class MessageService {
     // Imposta il messaggio
     this.messageSubject.next(message);
   }
+
+  clearMessage(): void {
+    this.messageSubject.next(null); // Reset del messaggio
+  }
 }
 

@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ButtonModule } from 'primeng/button';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TranslocoRootModule } from './translations/transloco-root.module';
 import { TranslationsModule } from './translations/translations.module';
 import { SharedModule } from './shared/shared.module';
@@ -14,6 +14,7 @@ import { AuthModule } from './auth/auth.module';
 import { AgGridModule } from 'ag-grid-angular';
 import { ModuleRegistry } from '@ag-grid-community/core';
 import { ClientSideRowModelModule } from '@ag-grid-community/client-side-row-model';
+import { JwtInterceptor } from './auth/jwt.interceptor';
 
 ModuleRegistry.registerModules([ClientSideRowModelModule]);
 
@@ -32,6 +33,9 @@ ModuleRegistry.registerModules([ClientSideRowModelModule]);
     SharedModule,
     AuthModule,
     AgGridModule
+  ],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

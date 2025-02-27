@@ -5,6 +5,8 @@ import { ColDef } from 'ag-grid-community';
 import { ModuleRegistry, ValidationModule, PaginationModule, ColumnAutoSizeModule } from 'ag-grid-community';
 import { ClientSideRowModelModule, ICellRendererParams } from 'ag-grid-community';
 import { UserActionRendererComponent } from '../user-action-renderer/user-action-renderer.component';
+import { AuthService } from '../../auth/auth.service';
+import { Router } from '@angular/router';
 
 
 // Registra il modulo prima di usarlo
@@ -39,7 +41,8 @@ export class UsersListComponent {
 
  constructor(
   private userService: UsersService,
-  // private messageService: MessageService
+  private authService: AuthService,
+  private router: Router
  ) {}
 
  ngOnInit(): void {
@@ -64,5 +67,10 @@ export class UsersListComponent {
  closeUserDetail(): void {
   this.displayUserDetail = false;
   this.selectedUser = null;
+ }
+
+ logout() {
+  this.authService.logout();
+  this.router.navigate(['/login']);
  }
 }

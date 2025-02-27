@@ -38,6 +38,7 @@
   "usersListPage": {
     "title": "Benutzerliste",
     "detail": "Benutzerkarte ansehen",
-    "addUser": "Neuen Benutzer hinzufügen"
+    "addUser": "Neuen Benutzer hinzufügen",
+    "logout": "Abmelden"
   }
 }

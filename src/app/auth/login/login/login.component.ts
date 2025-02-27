@@ -45,14 +45,18 @@ export class LoginComponent {
   if (this.messageSubscription) {
     this.messageSubscription.unsubscribe();
   }
+    this.messageService.clearMessage();
  }
 
 onSubmit(): void {
   const { email, password } = this.loginForm.value;
   if (email && password) {
+    console.log('Login chiamato')
     this.authService.login(email, password).subscribe({
-      next: () => this.router.navigate(['/usersList']),
-      error: () => {
+      next: (response) => {this.router.navigate(['/usersList']),
+      console.log('Login completato con successo', response);},
+      error: (error) => {
+        // console.log('Errore durante il login:', error);  // DEBUG
         const errorMessageKey = 'messages.error.invalid_credentials';  // Usa la chiave di traduzione
         // console.log(`[LoginComponent] Impostando messaggio errore con chiave: ${errorMessageKey}`); // DEBUG
         this.messageService.setMessage(errorMessageKey); // Imposta la chiave nel service

@@ -3,9 +3,12 @@
 <!-- Lista di utenti -->
 <div class="agGrid">
 
-  <div class="btnAddUser">
+  <div class="containerBtnLogout">
     <!-- Pulsante per inserire un nuovo utente -->
     <p-button>{{ 'usersListPage.addUser' | transloco }}</p-button>
+
+    <!-- Pulsante per eseguire il logout -->
+      <p-button class="logout" (click)="logout()">{{ 'usersListPage.logout' | transloco }}<i class="pi pi-sign-out"></i></p-button>
   </div>
   <ag-grid-angular
     class="ag-theme-alpine"

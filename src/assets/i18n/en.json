@@ -38,6 +38,7 @@
   "usersListPage": {
     "title": "Users List",
     "detail": "View user card",
-    "addUser": "Add New User"
+    "addUser": "Add New User",
+    "logout": "Logout"
   }
 }

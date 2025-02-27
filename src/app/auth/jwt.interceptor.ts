@@ -6,42 +6,54 @@ import { catchError, Observable, throwError } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class JwtService implements HttpInterceptor {
+export class JwtInterceptor implements HttpInterceptor {
 
   constructor(private router: Router) {}
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-      const token = localStorage.getItem('accessToken');
+    // console.log('Intercepting request:', req.url); // DEBUG
+    const token = localStorage.getItem('accessToken');
+    // console.log('Token recuperato:', token); // DEBUG
 
-      let authReq = req;
-      if (token) {
+    // Escludo le richieste di traduzione e login
+    if (req.url.includes('/assets/i18n') || req.url.includes('/login')) {
+      // console.log('Richiesta esclusa dall\'interceptor:', req.url); // DEBUG
+      return next.handle(req);
+    }
 
-        // Verifico se il token è scaduto
-        if (this.isTokenExpired(token)) {
-          localStorage.removeItem('accessToken');
-          this.router.navigate(['/login']);
-          return throwError(() => new Error('Token scaduto'));
-        }
-        // Clona la richiesta e aggiunge l'intestazione Authorization con il token
-        authReq = req.clone({
-          setHeaders: {
-            Authorization: `Bearer ${token}`
-          }
-        });
-        return next.handle(authReq).pipe(
-          catchError(error => {
-            if (error.status === 401) {
-              console.error('Non autorizzato');
-              // Rimuove il token dal localStorage se è scaduto
-              localStorage.removeItem('accessToken');
-              this.router.navigate(['/login']);
-            }
-            return throwError(() => new Error('Errore nell\'autenticazione'));
-          })
-        )
+    if (token) {
+      if (this.isTokenExpired(token)) {
+        // console.log('Token scaduto'); // DEBUG
+        localStorage.removeItem('accessToken');
+        this.router.navigate(['/login']);
+        return throwError(() => new Error('Token scaduto'));
       }
-      // Se non c'è token, reindirizza alla pagina di login
-      this.router.navigate(['/login']);
+
+      const authReq = req.clone({
+        setHeaders: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+      // console.log('Richiesta clonata con token:', authReq); // DEBUG
+      return next.handle(authReq).pipe(
+        catchError(error => {
+          // console.error('Errore durante la richiesta:', error); // DEBUG
+          if (error.status === 401) {
+            // console.error('Non autorizzato'); // DEBUG
+            localStorage.removeItem('accessToken');
+            this.router.navigate(['/login']);
+          }
+          return throwError(() => error);
+        })
+      );
+    } else {
+      // console.log('Token mancante, reindirizzamento al login'); // DEBUG
+
+      // Verifico se non mi trovo già nella pagina di login evitando un loop
+      if (!this.router.url.includes('/login')) {
+        this.router.navigate(['/login']);
+      }
       return throwError(() => new Error('Token mancante'));
+    }
   }
 
   // Funzione per decodificare il token e verificare se è scaduto
@@ -54,9 +66,12 @@ export class JwtService implements HttpInterceptor {
   }
   private decodeToken(token: string): any {
     try {
-      const payload = token.split('.')[1]; // Ottengo la parte payload del token (base64)
+      const payload = token.split('.')[1];
       if (!payload) return null;
-      return JSON.parse(atob(payload)); // Decodifico e converto da base64 a JSON
+      const decodedPayload = decodeURIComponent(atob(payload).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+      }).join(''));
+      return JSON.parse(decodedPayload);
     } catch (error) {
       console.error('Errore nella decodifica del token', error);
       return null;

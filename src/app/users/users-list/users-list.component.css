@@ -6,11 +6,28 @@ h2 {
   margin: 1.2rem;
 }
 
-.btnAddUser {
+.containerBtnLogout {
   margin-bottom: 1.2rem;
   margin-right: .3rem;
   display: flex;
-  justify-content: end;
+  justify-content: space-between;
+}
+
+.logout button{
+  color: #262626;
+  background-color: transparent;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.logout button i {
+  margin-left: .5rem;
+}
+
+.logout button:hover {
+  background-color: #93939318;
+  color: #db0a0a;
 }
 
 .view-btn, .edit-btn, .delete-btn {

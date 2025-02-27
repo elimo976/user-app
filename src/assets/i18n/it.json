@@ -38,6 +38,7 @@
   "usersListPage": {
     "title": "Lista utenti",
     "detail": "Visualizza scheda utente",
-    "addUser": "Crea nuovo utente"
+    "addUser": "Crea nuovo utente",
+    "logout": "Esci"
   }
 }
