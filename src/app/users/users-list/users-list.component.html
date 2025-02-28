@@ -1,14 +1,18 @@
 <app-user-detail [user]="selectedUser" [display]="displayUserDetail" (close)="closeUserDetail()"></app-user-detail>
 <h2>{{ 'usersListPage.title' | transloco }}</h2>
+
+<div *ngIf="message" [ngClass]="{ 'success-message': true, 'error-message': false }">
+  {{ message }}
+</div>
 <!-- Lista di utenti -->
 <div class="agGrid">
 
   <div class="containerBtnLogout">
     <!-- Pulsante per inserire un nuovo utente -->
-    <p-button>{{ 'usersListPage.addUser' | transloco }}</p-button>
+    <p-button (onClick)="goToForm()">{{ 'usersListPage.addUser' | transloco }}</p-button>
 
     <!-- Pulsante per eseguire il logout -->
-      <p-button class="logout" (click)="logout()">{{ 'usersListPage.logout' | transloco }}<i class="pi pi-sign-out"></i></p-button>
+      <p-button class="logout" (onClick)="logout()">{{ 'usersListPage.logout' | transloco }}<i class="pi pi-sign-out"></i></p-button>
   </div>
   <ag-grid-angular
     class="ag-theme-alpine"
@@ -19,6 +23,7 @@
     [domLayout]="'autoHeight'"
     [animateRows]="true"
     [gridOptions]="gridOptions"
+    [context]="this"
     (gridReady)="onGridReady($event)"
     >
 
@@ -26,6 +31,7 @@
     <p-button (click)="openUserDetail(user)" *ngFor="let user of users">
       {{ 'usersListPage.detail' | transloco }}
     </p-button>
+
   </ag-grid-angular>
 
 </div>

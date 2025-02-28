@@ -2,43 +2,85 @@
   "messages": {
     "error": {
       "invalid_credentials": "Invalid credentials",
-      "authentication_required": "Authentication required"
-     }
+      "authentication_required": "Authentication required",
+      "required": "Required Field",
+      "email": "Invalid email",
+      "minlength": "The field must have at least {{minLength}} characters.",
+      "maxlength": "The field cannot exceed {{maxLength}} characters.",
+      "pattern": "Invalid format",
+      "formInvalid": "The form contains errors, please correct them.",
+      "addError":"Error adding user.",
+      "deleteError": "Error deleting user."
     },
+    "addedSuccessfully":"User added successfully.",
+    "deletedSuccessfully": "User deleted successfully."
+  },
   "app": {
     "title": "User Application",
-    "description": "Manage your users"
+    "description": "Manage your Users"
   },
   "menu": {
-    "analytics": "Analytics",
-    "usersList": "Users List",
+    "analytics": "Statistics",
+    "usersList": "User List",
     "login": "Login"
   },
   "login": {
-    "signIn": "Sign In",
-    "enter": "Enter"
+    "signIn": "Enter your credentials",
+    "enter": "Login"
   },
   "userDetailPage": {
     "title": "User Details",
     "role": "Role",
     "userRoles": {
-      "admin": "Admin",
+      "admin": "Administrator",
       "user": "User"
     },
     "dateOfBirth": "Date of Birth",
-    "phoneNumber": "Phone number",
+    "phoneNumber": "Phone Number",
     "address": {
-      "street": "Address",
+      "street": "Street Address",
       "city": "City",
-      "zipCode": "Postal Code",
+      "zipCode": "ZIP Code",
       "country": "Country"
     }
   },
   "close": "Close",
   "usersListPage": {
-    "title": "Users List",
-    "detail": "View user card",
-    "addUser": "Add New User",
+    "title": "User List",
+    "detail": "View user profile",
+    "addUser": "Create new user",
     "logout": "Logout"
+  },
+  "formPage": {
+    "validation": {
+      "required": "This field is required.",
+      "minlength": "The field must have at least {{minLength}} characters.",
+      "maxlength": "The field cannot exceed {{maxLength}} characters.",
+      "invalidEmail": "Invalid email address.",
+      "invalidPhoneNumber": "Invalid phone number.",
+      "formInvalid": "The form contains errors, please correct them."
+    },
+    "form": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "role": "Role",
+      "selectRole": "Select Role",
+      "phoneNumber": "Phone Number",
+      "dateOfBirth": "Date of Birth",
+      "addressText": "Address",
+      "password": "Password",
+      "address": {
+        "street": "Street Address",
+        "city": "City",
+        "zipCode": "ZIP Code",
+        "country": "Country"
+      },
+      "submit": "Submit"
+    },
+    "user": {
+      "addedSuccessfully": "User added successfully.",
+      "addError": "Error adding user."
+    }
   }
 }

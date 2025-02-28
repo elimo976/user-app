@@ -3,10 +3,12 @@ import { User } from '../user.model';
 import { UsersService } from '../users.service';
 import { ColDef } from 'ag-grid-community';
 import { ModuleRegistry, ValidationModule, PaginationModule, ColumnAutoSizeModule } from 'ag-grid-community';
-import { ClientSideRowModelModule, ICellRendererParams } from 'ag-grid-community';
+import { ClientSideRowModelModule } from 'ag-grid-community';
 import { UserActionRendererComponent } from '../user-action-renderer/user-action-renderer.component';
 import { AuthService } from '../../auth/auth.service';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { MessageService } from '../../shared/services/message.service';
 
 
 // Registra il modulo prima di usarlo
@@ -23,6 +25,9 @@ export class UsersListComponent {
  users: User[] = [];
  selectedUser: User | null = null;
  displayUserDetail = false;
+ message: string | null = null;
+ messageClass: { [key: string]: boolean } = {};
+ private messageSubscription?: Subscription;
 
  columnDefs: ColDef[] = [
   { headerName: ' First Name', field: 'firstName' },
@@ -30,10 +35,14 @@ export class UsersListComponent {
   { headerName: 'Email', field: 'email' },
   { headerName: 'Role', field: 'role'},
   { headerName: 'Actions',
-     cellRenderer: UserActionRendererComponent
+     cellRenderer: UserActionRendererComponent,
+     cellRendererParams: {
+      context: { componentParent: this }
+     }
     }
  ]
 
+ // Per permettere a UserActionRenderer di accedere ai metodi di questo componente.
  gridOptions = {
   context: { componentParent: this }
  }
@@ -42,11 +51,23 @@ export class UsersListComponent {
  constructor(
   private userService: UsersService,
   private authService: AuthService,
-  private router: Router
+  private messageService: MessageService,
+  private router: Router,
+
  ) {}
 
  ngOnInit(): void {
   this.loadUsers();
+
+  // Sottoscrizione all'Obs del servizio condiviso
+  this.messageSubscription = this.messageService.message$.subscribe((message) => {
+    // console.log('Messaggio ricevuto:', message); //
+    this.handleMessage(message);
+  })
+ }
+
+ ngOnDestroy() {
+  this.messageSubscription?.unsubscribe();
  }
 
  loadUsers(): void {
@@ -73,4 +94,33 @@ export class UsersListComponent {
   this.authService.logout();
   this.router.navigate(['/login']);
  }
+
+ goToForm() {
+  this.router.navigate(['/usersList/userForm']);
+ }
+
+ refreshUsersList(): void {
+  this.userService.getAllUsers().subscribe({
+    next: (users) => {
+      this.users = users; // Aggiorna i dati della tabella
+    },
+    error: (error) => {
+      console.error('Errore nel ricaricare la lista utenti:', error);
+    }
+  });
+}
+
+handleMessage(message: string | null): void {
+  if (message) {
+    this.message = message;
+    this.messageClass = {
+      'success-message': message.includes('successfully'),
+      'error-message': message.includes('error'),
+    };
+  } else {
+    this.message = null;
+    this.messageClass = {};
+  }
+}
+
 }

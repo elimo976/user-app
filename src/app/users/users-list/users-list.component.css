@@ -56,3 +56,27 @@ h2 {
   background-color: #93939318;
   border-radius: 50%;
 }
+
+.success-message {
+  margin-top: 1rem;
+  padding:.5rem 1rem;
+  background-color: #4caf50;
+  color: #fff;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.error-message {
+  margin-top: 1rem;
+  padding:.5rem 1rem;
+  background-color: #f44336;
+  color: #fff;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.test-class {
+  background-color: yellow;
+  color: black;
+}
+

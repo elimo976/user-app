@@ -1,1 +1,114 @@
-<p>user-form works!</p>
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="form-container">
+
+  <div class="p-grid p-fluid">
+
+    <!-- NOME & COGNOME -->
+    <div class="col-12 md-6">
+      <label for="firstName">{{ 'formPage.form.firstName' | transloco }}</label>
+      <input id="firstName" type="text" pInputText formControlName="firstName"/>
+      <div *ngIf="userForm.get('firstName')?.invalid && userForm.get('firstName')?.touched" class="error">
+        <small>{{ getErrorMessage('firstName') }}</small>
+      </div>
+    </div>
+
+    <div class="col-12 md-6">
+      <label for="lastName">{{ 'formPage.form.lastName' | transloco }}</label>
+      <input id="lastName" type="text" pInputText formControlName="lastName"/>
+      <div *ngIf="userForm.get('lastName')?.invalid && userForm.get('lastName')?.touched" class="error">
+        <small>{{ getErrorMessage('lastName') }}</small>
+      </div>
+    </div>
+
+    <!-- RUOLO -->
+    <div class="col-12 md-6">
+      <label for="role">{{ 'formPage.form.role' | transloco }}</label>
+      <p-dropdown [options]="roles" formControlName="role" placeholder="{{ 'formPage.form.selectRole' | transloco }}"></p-dropdown>
+    </div>
+
+    <!-- EMAIL -->
+    <div class="col-12 md-6">
+      <label for="email">{{ 'formPage.form.email' | transloco }}</label>
+      <input id="email" type="email" pInputText formControlName="email"/>
+      <div *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched" class="error">
+        <small>{{ getErrorMessage('email') }}</small>
+      </div>
+    </div>
+
+    <!-- NUMERO DI TELEFONO & DATA DI NASCITA -->
+    <div class="col-12 md-6">
+      <label for="phoneNumber">{{ 'formPage.form.phoneNumber' | transloco }}</label>
+      <input id="phoneNumber" type="text" pInputText formControlName="phoneNumber"/>
+      <div *ngIf="userForm.get('phoneNumber')?.invalid && userForm.get('phoneNumber')?.touched" class="error">
+        <small>{{ getErrorMessage('phoneNumber') }}</small>
+      </div>
+    </div>
+
+    <div class="col-12 md-6">
+      <label for="dateOfBirth">{{ 'formPage.form.dateOfBirth' | transloco }}</label>
+      <input type="date" id="dateOfBirth" pInputText formControlName="dateOfBirth">
+      <div *ngIf="userForm.get('dateOfBirth')?.invalid && userForm.get('dateOfBirth')?.touched" class="error">
+        <small>{{ getErrorMessage('dateOfBirth') }}</small>
+      </div>
+    </div>
+
+    <div class="col-12 md-6">
+      <label for="password">{{ 'formPage.form.password' | transloco }}</label>
+      <input type="password" id="password" pInputText formControlName="password">
+      <div *ngIf="userForm.get('password')?.invalid && userForm.get('password')?.touched" class="error">
+        <small>{{ getErrorMessage('password') }}</small>
+      </div>
+    </div>
+
+  </div>
+
+  <h4>{{ 'formPage.form.addressText' | transloco }}</h4>
+
+  <div formGroupName="address" class="p-grid p-fluid">
+
+    <!-- INDIRIZZO -->
+    <div class="col-12">
+      <label for="street">{{ 'formPage.form.address.street' | transloco }}</label>
+      <input id="street" type="text" pInputText formControlName="street"/>
+      <div *ngIf="userForm.get('address.street')?.invalid && userForm.get('address.street')?.touched" class="error">
+        <small>{{ getErrorMessage('address.street') }}</small>
+      </div>
+    </div>
+
+    <!-- CITTA & CAP -->
+    <div class="col-12 md-6">
+      <label for="city">{{ 'formPage.form.address.city' | transloco }}</label>
+      <input id="city" type="text" pInputText formControlName="city"/>
+      <div *ngIf="userForm.get('address.city')?.invalid && userForm.get('address.city')?.touched" class="error">
+        <small>{{ getErrorMessage('address.city') }}</small>
+      </div>
+    </div>
+
+    <div class="col-12 md-6">
+      <label for="zipCode">{{ 'formPage.form.address.zipCode' | transloco }}</label>
+      <input id="zipCode" type="text" pInputText formControlName="zipCode"/>
+      <div *ngIf="userForm.get('address.zipCode')?.invalid && userForm.get('address.zipCode')?.touched" class="error">
+        <small>{{ getErrorMessage('address.zipCode') }}</small>
+      </div>
+    </div>
+
+    <!-- NAZIONE -->
+    <div class="col-12">
+      <label for="country">{{ 'formPage.form.address.country' | transloco }}</label>
+      <input id="country" type="text" pInputText formControlName="country"/>
+      <div *ngIf="userForm.get('address.country')?.invalid && userForm.get('address.country')?.touched" class="error">
+        <small>{{ getErrorMessage('address.country') }}</small>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="p-grid p-fluid">
+    <div class="col-12">
+      <p-button pButton type="submit" label="{{ 'formPage.form.submit' | transloco }}" [disabled]="userForm.invalid"></p-button>
+    </div>
+  </div>
+</form>
+
+<div *ngIf="showMessage" class="successMessage">
+  {{ successMessage | transloco}}
+</div>

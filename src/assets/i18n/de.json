@@ -2,12 +2,22 @@
   "messages": {
     "error": {
       "invalid_credentials": "Ungültige Anmeldedaten",
-      "authentication_required": "Authentifizierung erforderlich"
-    }
+      "authentication_required": "Authentifizierung erforderlich",
+      "required": " Pflichtfeld",
+      "email": "Ungültige E-Mail-Adressen",
+      "minlength": "Das Feld muss mindestens {{minLength}} Zeichen enthalten.",
+      "maxlength": "Das Feld darf nicht mehr als {{maxLength}} Zeichen enthalten.",
+      "pattern": "Ungültiges Format",
+      "formInvalid":"Das Formular enthält Fehler, bitte korrigieren Sie sie.",
+      "addError":"Fehler beim Hinzufügen des Benutzers.",
+      "deleteError": "Fehler beim Löschen des Benutzers."
+    },
+    "addedSuccessfully":"Benutzer erfolgreich hinzugefügt.",
+    "deletedSuccessfully": "Benutzer erfolgreich gelöscht."
   },
   "app": {
     "title": "Benutzeranwendung",
-    "description": "Benutzer verwalten"
+    "description": "Verwalten Sie Ihre Benutzer"
   },
   "menu": {
     "analytics": "Statistiken",
@@ -15,8 +25,8 @@
     "login": "Anmelden"
   },
   "login": {
-    "signIn": "Anmeldeinformationen eingeben",
-    "enter": "Senden"
+    "signIn": "Geben Sie Ihre Anmeldedaten ein",
+    "enter": "Anmelden"
   },
   "userDetailPage": {
     "title": "Benutzerdetails",
@@ -28,7 +38,7 @@
     "dateOfBirth": "Geburtsdatum",
     "phoneNumber": "Telefonnummer",
     "address": {
-      "street": "Adresse",
+      "street": "Straße",
       "city": "Stadt",
       "zipCode": "Postleitzahl",
       "country": "Land"
@@ -37,8 +47,40 @@
   "close": "Schließen",
   "usersListPage": {
     "title": "Benutzerliste",
-    "detail": "Benutzerkarte ansehen",
-    "addUser": "Neuen Benutzer hinzufügen",
+    "detail": "Benutzerprofil anzeigen",
+    "addUser": "Neuen Benutzer erstellen",
     "logout": "Abmelden"
+  },
+  "formPage": {
+    "validation": {
+      "required": "Dieses Feld ist erforderlich.",
+      "minlength": "Das Feld muss mindestens {{minLength}} Zeichen enthalten.",
+      "maxlength": "Das Feld darf nicht mehr als {{maxLength}} Zeichen enthalten.",
+      "invalidEmail": "Ungültige E-Mail-Adresse.",
+      "invalidPhoneNumber": "Ungültige Telefonnummer.",
+      "formInvalid": "Das Formular enthält Fehler, bitte korrigieren Sie sie."
+    },
+    "form": {
+      "firstName": "Vorname",
+      "lastName": "Nachname",
+      "email": "E-Mail",
+      "role": "Rolle",
+      "selectRole": "Rolle auswählen",
+      "phoneNumber": "Telefonnummer",
+      "dateOfBirth": "Geburtsdatum",
+      "addressText": "Adresse",
+      "password": "Password",
+      "address": {
+        "street": "Straße",
+        "city": "Stadt",
+        "zipCode": "Postleitzahl",
+        "country": "Land"
+      },
+      "submit": "Senden"
+    },
+    "user": {
+      "addedSuccessfully": "Benutzer erfolgreich hinzugefügt.",
+      "addError": "Fehler beim Hinzufügen des Benutzers."
+    }
   }
 }

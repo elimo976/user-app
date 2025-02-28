@@ -5,9 +5,12 @@ import { UsersRoutingModule } from './users-routing.module';
 import { UsersListComponent } from './users-list/users-list.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { UserFormComponent } from './user-form/user-form.component';
+import { ReactiveFormsModule } from'@angular/forms';
 
 import {DialogModule} from 'primeng/dialog';
 import { Button } from 'primeng/button';
+import { DropdownModule } from 'primeng/dropdown'
+import { InputTextModule } from 'primeng/inputtext'
 
 import {AgGridModule} from 'ag-grid-angular';
 import { TranslocoModule } from '@ngneat/transloco';
@@ -25,8 +28,11 @@ import { UserActionRendererComponent } from './user-action-renderer/user-action-
   imports: [
     CommonModule,
     UsersRoutingModule,
+    ReactiveFormsModule,
     DialogModule,
+    InputTextModule,
     Button,
+    DropdownModule,
     TranslocoModule,
     TranslationsModule,
     AgGridModule

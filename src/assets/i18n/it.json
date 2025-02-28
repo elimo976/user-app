@@ -2,8 +2,18 @@
   "messages": {
     "error": {
       "invalid_credentials": "Credenziali errate",
-      "authentication_required": "Autenticazione necessaria"
-    }
+      "authentication_required": "Autenticazione necessaria",
+      "required": "Campo obbligatorio",
+      "email": "Email non valida",
+      "minlength": "Il campo deve avere almeno {{minLength}} caratteri.",
+      "maxlength": "Il campo non può superare {{maxLength}} caratteri.",
+      "pattern": "Formato non valido",
+      "formInvalid": "Il modulo contiene errori, per favore correggili.",
+      "addError":"Errore nell'aggiungere l'utente.",
+      "deleteError": "Errore nell'eliminazione dell'utente."
+    },
+    "addedSuccessfully":"Utente aggiunto con successo.",
+    "deletedSuccessfully": "Utente eliminato con successo."
   },
   "app": {
     "title": "Applicazione Utenti",
@@ -40,5 +50,37 @@
     "detail": "Visualizza scheda utente",
     "addUser": "Crea nuovo utente",
     "logout": "Esci"
+  },
+  "formPage": {
+      "validation": {
+        "required": "Questo campo è obbligatorio.",
+        "minlength": "Il campo deve avere almeno {{minLength}} caratteri.",
+        "maxlength": "Il campo non può superare {{maxLength}} caratteri.",
+        "invalidEmail": "Indirizzo email non valido.",
+        "invalidPhoneNumber": "Numero di telefono non valido.",
+        "formInvalid": "Il modulo contiene errori, per favore correggili."
+      },
+      "form": {
+        "firstName": "Nome",
+        "lastName": "Cognome",
+        "email": "Email",
+        "role": "Ruolo",
+        "selectRole": "Seleziona ruolo",
+        "phoneNumber": "Numero di telefono",
+        "dateOfBirth": "Data di Nascita",
+        "addressText": "Indirizzo",
+        "password": "Password",
+        "address": {
+          "street": "Indirizzo",
+          "city": "Città",
+          "zipCode": "CAP",
+          "country": "Stato"
+        },
+        "submit": "Invia"
+      },
+      "user": {
+        "addedSuccessfully": "Utente aggiunto con successo.",
+        "addError": "Errore nell'aggiungere l'utente."
+    }
   }
 }
