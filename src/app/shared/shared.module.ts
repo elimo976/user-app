@@ -9,10 +9,9 @@ import { PasswordModule } from 'primeng/password'
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
-import { TranslocoModule, TranslocoService } from '@ngneat/transloco';
+import { TranslocoModule } from '@ngneat/transloco';
 import { TranslationsModule } from '../translations/translations.module';
 import { ButtonModule } from 'primeng/button';
-import { MessageService } from './services/message.service';
 
 
 

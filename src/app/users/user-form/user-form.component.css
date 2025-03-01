@@ -19,3 +19,29 @@
   box-sizing: border-box;
   text-align: center;
 }
+
+.required-field span {
+  color: #db0a0a;
+  font-size: 1.2rem;
+  margin-left:.3rem;
+}
+
+p.required-field {
+  color: #616161;
+  text-align: end;
+  margin-right: .8rem;
+  margin-top: 1.5rem;
+  font-size: .9rem;
+}
+
+.required-field p-dropdown .p-dropdown-label{
+  color: #616161;
+  font-size: 1rem;
+  margin-left: 0;
+}
+
+span.ng-star-inserted {
+  color: #232323;
+  font-size: 1rem;
+  margin-left: 0;
+}

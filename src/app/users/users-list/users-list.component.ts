@@ -6,7 +6,7 @@ import { ModuleRegistry, ValidationModule, PaginationModule, ColumnAutoSizeModul
 import { ClientSideRowModelModule } from 'ag-grid-community';
 import { UserActionRendererComponent } from '../user-action-renderer/user-action-renderer.component';
 import { AuthService } from '../../auth/auth.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { MessageService } from '../../shared/services/message.service';
 
@@ -53,6 +53,7 @@ export class UsersListComponent {
   private authService: AuthService,
   private messageService: MessageService,
   private router: Router,
+  private route: ActivatedRoute
 
  ) {}
 
@@ -60,7 +61,7 @@ export class UsersListComponent {
   this.loadUsers();
 
   // Sottoscrizione all'Obs del servizio condiviso
-  this.messageSubscription = this.messageService.message$.subscribe((message) => {
+  this.messageSubscription = this.messageService.message$.subscribe(message => {
     // console.log('Messaggio ricevuto:', message); //
     this.handleMessage(message);
   })
@@ -96,8 +97,21 @@ export class UsersListComponent {
  }
 
  goToForm() {
-  this.router.navigate(['/usersList/userForm']);
+  this.router.navigate(['user-form'], { relativeTo: this.route.parent});
  }
+
+navigateToEditUser(userId: string): void {
+  // console.log('Naviga all\'utente da modificare con ID:', userId); // Debug
+  this.router.navigate(['user-form', userId], { relativeTo: this.route.parent }).then((success) => {
+    if (success) {
+      console.log('Navigazione riuscita');
+    } else {
+      console.error('Navigazione fallita');
+    }
+  }).catch((error) => {
+    console.error('Errore durante la navigazione:', error);
+  });
+}
 
  refreshUsersList(): void {
   this.userService.getAllUsers().subscribe({

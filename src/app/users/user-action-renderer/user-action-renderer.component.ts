@@ -39,7 +39,16 @@ export class UserActionRendererComponent implements ICellRendererAngularComp {
   }
 
   editUser(): void {
-    console.log('Modifica utente:', this.params.data);
+    const userId = this.params.data._id;
+    if (userId) {
+      if (this.params.context.componentParent.navigateToEditUser) {
+        this.params.context.componentParent.navigateToEditUser(userId); // Chiamo il metodo del componente genitore per navigare alla pagina di modifica dell'utente specificato dall'ID
+      } else {
+        console.error('navigateToEditUser non è definito nel componente padre');
+      }
+    } else {
+      console.error('Id utente non trovato');
+    }
   }
 
   deleteUser(): void {
@@ -48,6 +57,12 @@ export class UserActionRendererComponent implements ICellRendererAngularComp {
       console.error('Id utente non trovato');
       return;
     }
+
+    const confirmMessge = this.translocoService.translate('confirm.message');
+      if(!window.confirm(confirmMessge)) {
+        return; // L'utente ha annullato l'operazione
+      }
+
 
     this.userService.deleteUser(userId).subscribe({
       next: () => {

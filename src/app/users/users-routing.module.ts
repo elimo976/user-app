@@ -4,8 +4,18 @@ import { UsersListComponent } from './users-list/users-list.component';
 import { UserFormComponent } from './user-form/user-form.component';
 
 const routes: Routes = [
-  { path: '', component: UsersListComponent },
-  { path: 'userForm', component: UserFormComponent }
+  {
+    path: '', // Route principale del modulo users
+    component: UsersListComponent, // Mostra UsersListComponent come vista predefinita
+  },
+  {
+    path: 'user-form/:id', // Route per la modifica dell'utente
+    component: UserFormComponent,
+  },
+  {
+    path: 'user-form', // Route per la creazione di un nuovo utente
+    component: UserFormComponent,
+  },
 ];
 
 @NgModule({

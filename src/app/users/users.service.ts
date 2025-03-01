@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.development';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { catchError, Observable, throwError } from 'rxjs';
+import { catchError, Observable, tap, throwError } from 'rxjs';
 import { User } from './user.model';
 import { MessageService } from '../shared/services/message.service';
 
@@ -25,7 +25,15 @@ export class UsersService {
   }
 
   // Ottenere un singolo utente
-  // Gestito tramite data binding.
+  getUserById(userId: string): Observable<User> {
+    if (!userId) {
+      console.error('ID utente non valido');
+      return throwError(() => new Error('ID utente non valido'));
+    }
+    return this.http.get<User>(`${this.apiUrl}/${userId}`).pipe(
+      catchError((error) => this.handleError(error, 'errors.getUserById'))
+    );
+  }
 
   // Creare un nuovo utente
   addUser(user: User): Observable<User> {
@@ -35,9 +43,18 @@ export class UsersService {
   }
 
   // Aggiornare un utente
-  updateUser(userId: string, updateData: User): Observable<User> {
-    return this.http.patch<User>(`${this.apiUrl}/${userId}`, updateData).pipe(
-      catchError((error) => this.handleError(error, 'errors.updateUser'))
+  updateUser(userId: string, updateData: Partial<User>): Observable<User> {
+    if (!userId) {
+      console.error('ID utente non valido');
+      return throwError(() => new Error('ID utente non valido'));
+    }
+    console.log('Sending update request for user ID:', userId);
+    console.log('Update data:', updateData);
+    return this.http.patch<User>(`${this.apiUrl}/profile/${userId}`, updateData).pipe(
+      tap(updatedUser => {
+        console.log('Profilo aggiornato con successo', updatedUser);
+      }),
+      catchError((error) => this.handleError(error,'messages.error.updateError')) // Passa la chiave di traduzione
     );
   }
 

@@ -1,18 +1,21 @@
 <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="form-container">
 
   <div class="p-grid p-fluid">
-
+    <div>
+      <p class="required-field"><span>*</span> {{ 'messages.error.required' | transloco }}</p>
+    </div>
     <!-- NOME & COGNOME -->
-    <div class="col-12 md-6">
-      <label for="firstName">{{ 'formPage.form.firstName' | transloco }}</label>
+    <div class="col-12 md-6 required-field">
+      <label for="firstName">{{ 'formPage.form.firstName' | transloco }}<span class="required-field">*</span>
+      </label>
       <input id="firstName" type="text" pInputText formControlName="firstName"/>
       <div *ngIf="userForm.get('firstName')?.invalid && userForm.get('firstName')?.touched" class="error">
         <small>{{ getErrorMessage('firstName') }}</small>
       </div>
     </div>
 
-    <div class="col-12 md-6">
-      <label for="lastName">{{ 'formPage.form.lastName' | transloco }}</label>
+    <div class="col-12 md-6 required-field">
+      <label for="lastName">{{ 'formPage.form.lastName' | transloco }}<span class="required-field">*</span></label>
       <input id="lastName" type="text" pInputText formControlName="lastName"/>
       <div *ngIf="userForm.get('lastName')?.invalid && userForm.get('lastName')?.touched" class="error">
         <small>{{ getErrorMessage('lastName') }}</small>
@@ -20,14 +23,14 @@
     </div>
 
     <!-- RUOLO -->
-    <div class="col-12 md-6">
-      <label for="role">{{ 'formPage.form.role' | transloco }}</label>
+    <div class="col-12 md-6 required-field">
+      <label for="role">{{ 'formPage.form.role' | transloco }}<span>*</span></label>
       <p-dropdown [options]="roles" formControlName="role" placeholder="{{ 'formPage.form.selectRole' | transloco }}"></p-dropdown>
     </div>
 
     <!-- EMAIL -->
-    <div class="col-12 md-6">
-      <label for="email">{{ 'formPage.form.email' | transloco }}</label>
+    <div class="col-12 md-6 required-field">
+      <label for="email">{{ 'formPage.form.email' | transloco }}<span class="required-field">*</span></label>
       <input id="email" type="email" pInputText formControlName="email"/>
       <div *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched" class="error">
         <small>{{ getErrorMessage('email') }}</small>
@@ -51,13 +54,16 @@
       </div>
     </div>
 
-    <div class="col-12 md-6">
-      <label for="password">{{ 'formPage.form.password' | transloco }}</label>
-      <input type="password" id="password" pInputText formControlName="password">
-      <div *ngIf="userForm.get('password')?.invalid && userForm.get('password')?.touched" class="error">
-        <small>{{ getErrorMessage('password') }}</small>
-      </div>
-    </div>
+  <!-- PASSWORD -->
+  <div class="col-12 md-6 required-field">
+    <label for="password">{{ 'formPage.form.password' | transloco }}<span class="required-field">*</span></label>
+    <div class="password-field">
+      <p-password id="password" formControlName="password" [toggleMask]="true" class="d-block mt-1" (onInput)="onPasswordInput($event)"></p-password>
+  </div>
+  <div *ngIf="userForm.get('password')?.invalid && userForm.get('password')?.touched" class="error">
+    <small>{{ getErrorMessage('password') }}</small>
+  </div>
+</div>
 
   </div>
 

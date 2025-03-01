@@ -14,6 +14,10 @@ export class MessageService {
     // console.log('[MessageService] Impostando messaggio:', message); // DEBUG
     // Imposta il messaggio
     this.messageSubject.next(message);
+    setTimeout(() => {
+      console.log('Sto cancellando il messaggio...');
+      this.clearMessage();
+    }, 3000);
   }
 
   clearMessage(): void {

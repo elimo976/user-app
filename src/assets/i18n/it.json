@@ -10,10 +10,18 @@
       "pattern": "Formato non valido",
       "formInvalid": "Il modulo contiene errori, per favore correggili.",
       "addError":"Errore nell'aggiungere l'utente.",
-      "deleteError": "Errore nell'eliminazione dell'utente."
+      "deleteError": "Errore nell'eliminazione dell'utente.",
+      "updateError": "Errore nella modifica dell'utente."
     },
     "addedSuccessfully":"Utente aggiunto con successo.",
-    "deletedSuccessfully": "Utente eliminato con successo."
+    "deletedSuccessfully": "Utente eliminato con successo.",
+    "updatedSuccessfully": "Utente aggiornato con successo"
+  },
+  "confirm": {
+    "title": "Conferma Eliminazione",
+    "message": "Sei sicuro di voler eliminare questo utente?",
+    "confirm": "Conferma",
+    "cancel": "Annulla"
   },
   "app": {
     "title": "Applicazione Utenti",

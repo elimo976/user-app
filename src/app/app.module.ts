@@ -15,6 +15,7 @@ import { AgGridModule } from 'ag-grid-angular';
 import { ModuleRegistry } from '@ag-grid-community/core';
 import { ClientSideRowModelModule } from '@ag-grid-community/client-side-row-model';
 import { JwtInterceptor } from './auth/jwt.interceptor';
+import { UsersModule } from './users/users.module';
 
 ModuleRegistry.registerModules([ClientSideRowModelModule]);
 
@@ -32,7 +33,8 @@ ModuleRegistry.registerModules([ClientSideRowModelModule]);
     TranslationsModule,
     SharedModule,
     AuthModule,
-    AgGridModule
+    AgGridModule,
+    UsersModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }

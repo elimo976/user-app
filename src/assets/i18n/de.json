@@ -10,10 +10,18 @@
       "pattern": "Ungültiges Format",
       "formInvalid":"Das Formular enthält Fehler, bitte korrigieren Sie sie.",
       "addError":"Fehler beim Hinzufügen des Benutzers.",
-      "deleteError": "Fehler beim Löschen des Benutzers."
+      "deleteError": "Fehler beim Löschen des Benutzers.",
+      "updateError": "Fehler beim Ändern des Benutzers."
     },
     "addedSuccessfully":"Benutzer erfolgreich hinzugefügt.",
-    "deletedSuccessfully": "Benutzer erfolgreich gelöscht."
+    "deletedSuccessfully": "Benutzer erfolgreich gelöscht.",
+    "updatedSuccessfully": "Benutzer erfolgreich geändert"
+  },
+  "confirm": {
+    "title": "Benutzer löschen",
+    "message": "Sind Sie sicher, dass Sie diesen Benutzer löschen möchten?",
+    "confirm": "Bestätigen",
+    "cancel": "Abbrechen"
   },
   "app": {
     "title": "Benutzeranwendung",
