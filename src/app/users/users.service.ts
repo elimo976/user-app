@@ -48,9 +48,11 @@ export class UsersService {
       console.error('ID utente non valido');
       return throwError(() => new Error('ID utente non valido'));
     }
+    // Rimuovi la password dall'oggetto updateData, se presente
+  const { password, ...dataWithoutPassword } = updateData;
     console.log('Sending update request for user ID:', userId);
-    console.log('Update data:', updateData);
-    return this.http.patch<User>(`${this.apiUrl}/profile/${userId}`, updateData).pipe(
+    console.log('Update data:', dataWithoutPassword);
+    return this.http.patch<User>(`${this.apiUrl}/profile/${userId}`, dataWithoutPassword).pipe(
       tap(updatedUser => {
         console.log('Profilo aggiornato con successo', updatedUser);
       }),

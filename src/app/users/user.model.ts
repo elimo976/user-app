@@ -7,6 +7,7 @@ export interface User {
   email: string;
   role: UserRole;
   dateOfBirth?: string;
+  password: string;
   address: {
     street: string;
     city: string;

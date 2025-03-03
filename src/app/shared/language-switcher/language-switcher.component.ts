@@ -21,5 +21,6 @@ export class LanguageSwitcherComponent {
   // Metodo per cambiare lingua
   changeLang(lang: string) {
     this.translocoService.setActiveLang(lang);
+    this.selectedLang = lang; // Per aggiornare selectedLang
   }
 }

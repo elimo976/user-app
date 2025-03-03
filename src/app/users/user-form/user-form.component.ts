@@ -166,7 +166,7 @@ private loadUser(): void {
     });
   }
 
-  private updateUser(): void {
+ updateUser(): void {
     console.log('Current user:', this.user); // Verifica se l'utente è presente
 
     if (this.user?._id) {

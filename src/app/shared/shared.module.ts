@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LanguageSwitcherComponent } from './language-switcher/language-switcher.component';
 
 import { DropdownModule } from 'primeng/dropdown';
 import { MenuModule } from 'primeng/menu';
-import { PasswordModule } from 'primeng/password'
+import { PasswordModule } from 'primeng/password';
 
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -42,5 +42,6 @@ import { ButtonModule } from 'primeng/button';
     HeaderComponent,
     ReactiveFormsModule
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA] // Per i Web Component
 })
 export class SharedModule { }
