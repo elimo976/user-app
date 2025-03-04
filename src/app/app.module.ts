@@ -16,6 +16,7 @@ import { ModuleRegistry } from '@ag-grid-community/core';
 import { ClientSideRowModelModule } from '@ag-grid-community/client-side-row-model';
 import { JwtInterceptor } from './auth/jwt.interceptor';
 import { UsersModule } from './users/users.module';
+import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 
 ModuleRegistry.registerModules([ClientSideRowModelModule]);
 
@@ -37,7 +38,8 @@ ModuleRegistry.registerModules([ClientSideRowModelModule]);
     UsersModule
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    provideCharts(withDefaultRegisterables())
   ],
   bootstrap: [AppComponent]
 })
